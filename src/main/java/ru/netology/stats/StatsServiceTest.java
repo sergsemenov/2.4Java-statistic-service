@@ -1,8 +1,7 @@
 package ru.netology.stats;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StatsServiceTest {
 
@@ -20,7 +19,7 @@ class StatsServiceTest {
     void calcAnnualAverage() {
         StatsService service = new StatsService();
         int expected = 15;
-        int actual = service.calcAnnualAverage(monthlySales);
+        double actual = service.calcAnnualAverage(monthlySales);
         assertEquals(expected, actual);
     }
 

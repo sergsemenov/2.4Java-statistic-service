@@ -11,12 +11,12 @@ public class StatsService {
         return annualSum;
     }
 
-    public int calcAnnualAverage(int[] monthlySales) {
+    public double calcAnnualAverage(int[] monthlySales) {
         int annualSum = 0;
         for (int monthlySale : monthlySales) {
             annualSum += monthlySale;
         }
-        return annualSum / monthlySales.length;
+        return (double) annualSum / monthlySales.length;
     }
 
     public int calcBestMonth(int[] monthlySales) {
@@ -39,7 +39,7 @@ public class StatsService {
         int salesMin = monthlySales[0];
         int monthOfMinSales = 1;
         for (int i = 1; i < monthlySales.length; i++) {
-            if (monthlySales[i] < salesMin) {
+            if (monthlySales[i] <= salesMin) {
                 salesMin = monthlySales[i];
                 monthOfMinSales = i + 1;
             }
@@ -48,7 +48,7 @@ public class StatsService {
     }
 
     public int calcMonthsBelowAverage(int[] monthlySales) {
-        int average = calcAnnualAverage(monthlySales);
+        double average = calcAnnualAverage(monthlySales);
         int monthsAboveCounter = 0;
         for (int monthlySale : monthlySales) {
             if (monthlySale > average) {
@@ -59,7 +59,7 @@ public class StatsService {
     }
 
     public int calcMonthsAboveAverage(int[] monthlySales) {
-        int average = calcAnnualAverage(monthlySales);
+        double average = calcAnnualAverage(monthlySales);
         int monthsBelowCounter = 0;
         for (int monthlySale : monthlySales) {
             if (monthlySale < average) {
@@ -69,5 +69,3 @@ public class StatsService {
         return monthsBelowCounter;
     }
 }
-
-
